@@ -19,12 +19,13 @@
 @required
 - (NSInteger)numberofSectionsInScrollImageTableView:(ScrollImageTable*)tableView;
 - (NSArray*)scrollImageTable:(ScrollImageTable*)tableView photoURLAtIndexPath:(NSIndexPath *)indexPath;
-
+- (NSString*)scrollImageTable:(ScrollImageTable*)tableView TitleAtSection:(NSInteger)section;
+- (NSString*)scrollImageTable:(ScrollImageTable*)tableView SummaryAtSection:(NSInteger)section;
 @end
 
 @protocol ScrollImageTableDelegate <NSObject>
 @optional
-////require cell view to return which image is clicked
+////require cell view to return the image clicked
 - (void)scrollImageTable:(ScrollImageTable*)tableView didSelectPhotoAtIndexPath:(NSIndexPath *)indexPath;
 @end
 

@@ -48,6 +48,16 @@
     return [[self.jsonArray objectAtIndex:indexPath.section] objectForKey:@"images"];
 }
 
+- (NSString*)scrollImageTable:(ScrollImageTable*)tableView TitleAtSection:(NSInteger)section
+{
+    return [[self.jsonArray objectAtIndex:section] objectForKey:@"title"];
+}
+
+- (NSString*)scrollImageTable:(ScrollImageTable*)tableView SummaryAtSection:(NSInteger)section
+{
+    return [[self.jsonArray objectAtIndex:section] objectForKey:@"description"];
+}
+
 #pragma mark-
 #pragma mark- ScrollImageTable Delegate
 

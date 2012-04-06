@@ -76,7 +76,7 @@
 }
 
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+{    
     OHAttributedLabel *label = [[[OHAttributedLabel alloc] initWithFrame:CGRectMake(0, 2.5, self.frame.size.width,HEADERHEIGHT - 5)]autorelease];
     label.userInteractionEnabled = NO;
     label.backgroundColor = [UIColor colorWithRed:220.0/256 green:220.0/256 blue:220.0/256 alpha:.9];
@@ -89,8 +89,9 @@
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.frame.size.width, HEADERHEIGHT+5)];
     label.layer.shadowPath = path.CGPath;
     
-    NSMutableAttributedString *title = [NSMutableAttributedString attributedStringWithString:@"标题标题标题标题  "];
-    NSMutableAttributedString *description = [NSMutableAttributedString attributedStringWithString:@"描述描述描述描述"];
+    NSMutableAttributedString *title = [NSMutableAttributedString attributedStringWithString:[self.imageTableDatasource scrollImageTable:self TitleAtSection:section]];
+    [title appendAttributedString:[NSAttributedString attributedStringWithString:@"  "]];
+    NSMutableAttributedString *description = [NSMutableAttributedString attributedStringWithString:[self.imageTableDatasource scrollImageTable:self SummaryAtSection:section]];
     
     [title setFont:[UIFont systemFontOfSize:FONT_SIZE]];
     [description setFont:[UIFont systemFontOfSize:FONT_SIZE - 5]];
